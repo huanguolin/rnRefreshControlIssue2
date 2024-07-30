@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect} from 'react';
 import {
-  Pressable,
   RefreshControl,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -36,9 +36,9 @@ export const Page1: React.FC = () => {
             style={styles.refreshing}
           />
         }>
-        <Pressable style={styles.box} onPress={handlePress}>
+        <TouchableOpacity style={styles.box} onPress={handlePress}>
           <Text>Goto Page2</Text>
-        </Pressable>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     margin: 15,
     borderColor: 'green',
     borderWidth: 1,
+    backgroundColor: '#ccc',
     justifyContent: 'center',
     alignItems: 'center',
   },

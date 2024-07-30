@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {
-  Pressable,
+  TouchableOpacity,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -24,9 +24,9 @@ export const Page2: React.FC = () => {
   return (
     <SafeAreaView style={styles.contaienr}>
       <ScrollView style={styles.contaienr}>
-        <Pressable style={styles.box} onPress={handlePress}>
+        <TouchableOpacity style={styles.box} onPress={handlePress}>
           <Text>Press to Refresh and Go Back</Text>
-        </Pressable>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     margin: 15,
     borderColor: 'green',
     borderWidth: 1,
+    backgroundColor: '#ccc',
     justifyContent: 'center',
     alignItems: 'center',
   },
