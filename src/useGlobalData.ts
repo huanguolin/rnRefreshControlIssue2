@@ -1,16 +1,22 @@
-import {createContext, useContext} from 'react';
+import {QueryClient, useQuery} from '@tanstack/react-query';
 
-export const RefreshingContext = createContext({
-  refetch: () => {},
-  refreshing: false,
-});
+export const queryClient = new QueryClient();
+
+export const KEY = 'global-data';
 
 export function useGlobalData() {
-  return useContext(RefreshingContext);
+  return useQuery({
+    queryKey: [KEY],
+    queryFn: mockFetchData,
+    initialData: [1, 2, 3],
+    initialDataUpdatedAt: Date.now(),
+    staleTime: 5 * 60 * 1000,
+  });
 }
 
 export async function mockFetchData() {
   console.log('refresh() start:', Date.now());
-  await new Promise(r => setTimeout(r, 3000));
+  await new Promise(r => setTimeout(r, 100));
   console.log('refresh()   end:', Date.now());
+  return [1, 2, 3];
 }

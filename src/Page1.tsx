@@ -14,15 +14,15 @@ import {useNavigation} from '@react-navigation/native';
 
 export const Page1: React.FC = () => {
   const nav = useNavigation();
-  const {refetch, refreshing} = useGlobalData();
+  const {refetch, isFetching} = useGlobalData();
 
   const handlePress = useCallback(() => {
     nav.navigate('Page2');
   }, [nav]);
 
   useEffect(() => {
-    console.log('===> refreshing: ', refreshing);
-  }, [refreshing]);
+    console.log('===> isFetching: ', isFetching);
+  }, [isFetching]);
 
   return (
     <SafeAreaView style={styles.contaienr}>
@@ -31,7 +31,7 @@ export const Page1: React.FC = () => {
         refreshControl={
           <RefreshControl
             onRefresh={refetch}
-            refreshing={refreshing}
+            refreshing={isFetching}
             tintColor={'red'}
             style={styles.refreshing}
           />

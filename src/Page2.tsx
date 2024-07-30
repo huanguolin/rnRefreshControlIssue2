@@ -8,17 +8,18 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useGlobalData} from './useGlobalData';
 import {useNavigation} from '@react-navigation/native';
+import {useQueryClient} from '@tanstack/react-query';
+import {KEY} from './useGlobalData';
 
 export const Page2: React.FC = () => {
   const nav = useNavigation();
-  const {refetch} = useGlobalData();
+  const queryClient = useQueryClient();
 
   const handlePress = useCallback(() => {
-    refetch();
-    nav.goBack();
-  }, [nav, refetch]);
+    queryClient.invalidateQueries({queryKey: [KEY]});
+    nav.navigate('Page1');
+  }, [queryClient, nav]);
 
   return (
     <SafeAreaView style={styles.contaienr}>
