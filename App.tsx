@@ -12,7 +12,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Page1} from './src/Page1';
 import {Page2} from './src/Page2';
 import {QueryClientProvider} from '@tanstack/react-query';
-import {queryClient} from './src/useGlobalData';
+import {queryClient} from './src/useData';
 
 export type StackParamsList = {
   Page1: undefined;

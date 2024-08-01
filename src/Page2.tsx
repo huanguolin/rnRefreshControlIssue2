@@ -10,7 +10,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useNavigation} from '@react-navigation/native';
 import {useQueryClient} from '@tanstack/react-query';
-import {KEY} from './useGlobalData';
+import {KEY} from './useData';
 
 export const Page2: React.FC = () => {
   const nav = useNavigation();
@@ -41,11 +41,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#444',
   },
   box: {
-    position: 'absolute',
-    top: 300,
     height: 100,
-    left: 0,
-    right: 0,
     margin: 15,
     borderColor: 'green',
     borderWidth: 1,

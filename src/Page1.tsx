@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useGlobalData} from './useGlobalData';
+import {useData} from './useData';
 import {useNavigation} from '@react-navigation/native';
 
 export const Page1: React.FC = () => {
   const nav = useNavigation();
-  const {refetch, isFetching} = useGlobalData();
+  const {refetch, isFetching} = useData();
 
   const handlePress = useCallback(() => {
     nav.navigate('Page2');

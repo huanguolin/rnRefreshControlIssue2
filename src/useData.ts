@@ -4,7 +4,7 @@ export const queryClient = new QueryClient();
 
 export const KEY = 'global-data';
 
-export function useGlobalData() {
+export function useData() {
   return useQuery({
     queryKey: [KEY],
     queryFn: mockFetchData,
@@ -16,7 +16,7 @@ export function useGlobalData() {
 
 export async function mockFetchData() {
   console.log('refresh() start:', Date.now());
-  await new Promise(r => setTimeout(r, 100));
+  await new Promise(r => setTimeout(r, 1000));
   console.log('refresh()   end:', Date.now());
   return [1, 2, 3];
 }
